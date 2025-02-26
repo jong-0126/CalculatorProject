@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        Calculator calc = new Calculator();
+        Calculator calc = new Calculator(0,0, ' ');
 
         while(true){
 
@@ -17,9 +17,10 @@ public class Main {
             System.out.println("사칙연산 기호를 입력하세요: ");
             calc.setOperator(sc.next().charAt(0));
 
-            calc.calculator(calc.getNum1(), calc.getOperator(), calc.getNum2());
+            calc.calculator();
 
             System.out.println("결과:" + calc.getResult());
+
 
             sc.nextLine();
 

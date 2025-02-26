@@ -10,34 +10,38 @@ public class Calculator {
     private int result;
 
     //생성자
-
+    public Calculator(int num1, int num2, char operator) {
+        this.num1 = num1;
+        this.num2 = num2;
+        this.operator = operator;
+    }
 
     //기능
-    public int calculator(int num1, char operator, int num2) {
+    public int calculator() {
 
         if(operator == '+') {
-            this.result = num1 + num2;
+            result = num1 + num2;
         }else if(operator == '-') {
-            this.result = num1 - num2;
+            result = num1 - num2;
         }else if(operator == '*') {
-            this.result = num1 * num2;
+            result = num1 * num2;
         }else if(operator == '/') {
             if(num2 == 0) {
                 System.out.println("0으로 나눌 수 없습니다.");
-                this.result = 0;
+                result = 0;
             }else{
-                this.result = num1 / num2;
+                result = num1 / num2;
             }
         }else{
             System.out.println("잘못 입력하셨습니다.");
-            this.result = 0;
+            result = 0;
         }
 
-        return this.result;
+        return result;
     }
 
     void removeResult() {
-        this.result = 0;
+        result = 0;
     }
 
     public int getNum1() {
