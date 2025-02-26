@@ -1,78 +1,40 @@
 package lv2;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Calculator {
 
     //속성
-    private int num1, num2;
-    private char operator;
-    private int result;
-
-    //생성자
-    public Calculator(int num1, int num2, char operator) {
-        this.num1 = num1;
-        this.num2 = num2;
-        this.operator = operator;
-    }
+    private ArrayList<Integer> result = new ArrayList<>();
 
     //기능
-    public int calculator() {
+    public void calculator(int firstNum, int secondNum, char operator) {
 
         if(operator == '+') {
-            result = num1 + num2;
+            result.add(firstNum + secondNum);
         }else if(operator == '-') {
-            result = num1 - num2;
+            result.add(firstNum - secondNum);
         }else if(operator == '*') {
-            result = num1 * num2;
+            result.add(firstNum * secondNum);
         }else if(operator == '/') {
-            if(num2 == 0) {
-                System.out.println("0으로 나눌 수 없습니다.");
-                result = 0;
+            if(secondNum == 0) {
+                throw new RuntimeException("0으로 나눌 수 없습니다.");
             }else{
-                result = num1 / num2;
+                result.add(firstNum / secondNum);
             }
         }else{
             System.out.println("잘못 입력하셨습니다.");
-            result = 0;
         }
-
-        return result;
     }
 
     void removeResult() {
-        result = 0;
+        result.remove(0);
+        System.out.println("첫번째 결과가 제거 되었습니다.");
+        System.out.println(result);
     }
 
-    public int getNum1() {
-        return num1;
-    }
-
-    public void setNum1(int num1) {
-        this.num1 = num1;
-    }
-
-    public int getNum2() {
-        return num2;
-    }
-
-    public void setNum2(int num2) {
-        this.num2 = num2;
-    }
-
-    public char getOperator() {
-        return operator;
-    }
-
-    public void setOperator(char operator) {
-        this.operator = operator;
-    }
-
-    public int getResult() {
+    public ArrayList<Integer> getResult() {
         return result;
-    }
-
-    public void setResult(int result) {
-        this.result = result;
     }
 }
