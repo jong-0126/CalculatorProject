@@ -1,12 +1,12 @@
 package lv2;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.List;
 
 public class Calculator {
 
     //속성
-    private ArrayList<Integer> result = new ArrayList<>();
+    private List<Integer> result = new ArrayList<>();
 
     //기능
     public void calculator(int firstNum, int secondNum, char operator) {
@@ -24,17 +24,17 @@ public class Calculator {
                 result.add(firstNum / secondNum);
             }
         }else{
-            System.out.println("잘못 입력하셨습니다.");
+            throw new RuntimeException("잘못 입력하셨습니다. 다시 입력해주세요");
         }
     }
 
-    void removeResult() {
+    public void removeResult() {
         result.remove(0);
         System.out.println("첫번째 결과가 제거 되었습니다.");
         System.out.println(result);
     }
 
-    public ArrayList<Integer> getResult() {
+    public List<Integer> getResult() {
         return result;
     }
 }
