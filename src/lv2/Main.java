@@ -6,21 +6,47 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int num1 = 0;
+        int num2 = 0;
+        String operator = "";
 
         Calculator calc = new Calculator();
         while (true) {
             try {
-                System.out.println("첫번째 숫자를 입력하세요: ");
-                int firstNum = sc.nextInt();
+                while (true) {
+                    System.out.println("첫번째 숫자를 입력하세요: ");
+                    num1 = sc.nextInt();
+                    if (num1 < 0) {
+                        System.out.println("양의 정수를 입력해주세요");
+                    } else {
+                        break;
+                    }
+                }
 
-                System.out.println("두번째 숫자를 입력하세요: ");
-                int second = sc.nextInt();
+                while (true) {
+                    System.out.println("두번째 숫자를 입력하세요: ");
+                    num2 = sc.nextInt();
+                    if (num2 < 0) {
+                        System.out.println("양의 정수를 입력해주세요");
+                    } else {
+                        break;
+                    }
+                }
 
-                System.out.println("사칙연산 기호를 입력하세요: ");
-                char operator = sc.next().charAt(0);
+                while (true) {
+                    System.out.println("사칙연산 기호를 입력하세요: ");
+                    operator = sc.next();
+                    // 정규 표현식 사용
+                    if (operator.length() == 1 && operator.matches("[+\\-*/]")) {
+                        break;
+                    } else {
+                        System.out.println("사칙 연산 기호를 다시 입력해주세요");
+                    }
+                }
 
-                calc.calculator(firstNum, second, operator);
+                calc.setResult(calc.calculate(num1, num2, operator));
                 System.out.println("결과:" + calc.getResult());
+
             } catch (InputMismatchException e) {
                 System.out.println("잘못 입력하셨습니다. 다시 입력해주세요");
                 sc.nextLine();
