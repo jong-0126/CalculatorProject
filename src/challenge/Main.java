@@ -1,6 +1,8 @@
 package challenge;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -20,9 +22,12 @@ public class Main {
 
 
                 System.out.println("사칙연산 기호를 입력하세요: ");
-                char operator = sc.next().charAt(0);
+                char op = sc.next().charAt(0);
 
-                calc.calculator(firstNum, secondNum, operator);
+                OperatorType operator = getOperatorType(op);
+
+
+                calc.calculate(firstNum, secondNum, operator);
                 System.out.println("결과:" + calc.getResult());
             } catch (InputMismatchException e) {
                 System.out.println("잘못 입력하셨습니다. 다시 입력해주세요");
@@ -51,5 +56,12 @@ public class Main {
             }
         }
         sc.close();
+    }
+    // 연산자 문자로부터 OperatorType을 찾는 메서드
+    private static OperatorType getOperatorType(char symbol) {
+        return Arrays.stream(OperatorType.values())
+                .filter(op -> op.getSymbol() == symbol)
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("잘못된 연산자 입니다."));
     }
 }

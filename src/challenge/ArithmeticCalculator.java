@@ -3,6 +3,7 @@ package challenge;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ArithmeticCalculator<T extends Number> {
 
     // 속성
@@ -10,32 +11,35 @@ public class ArithmeticCalculator<T extends Number> {
 
 
     // 기능
-    public void calculator(T firstNum, T secondNum, char operator) {
+    public void calculate(T firstNum, T secondNum, OperatorType operator) {
 
         double num1 = firstNum.doubleValue();
         double num2 = secondNum.doubleValue();
-//
-//        Calculator cal = new Calculator();
-//        double sum = cal.sum(num1, num2);
-//
-//
-//        CalculatorSub sub = (a, b) -> num1 - num2;
 
-        if (operator == OperatorType.PLUS.getSymbol()) {
-            result.add(num1 + num2);
-        } else if (operator == OperatorType.MINUS.getSymbol()) {
-            result.add(num1 - num2);
-        } else if (operator == OperatorType.MULTIPLY.getSymbol()) {
-            result.add(num1 * num2);
-        } else if (operator == OperatorType.DIVIDE.getSymbol()) {
+        double calculationResult;
+
+        Operator sum = (a, b) -> a + b;
+        Operator sub = (a, b) -> a - b;
+        Operator mul = (a, b) -> a * b;
+        Operator div = (a, b) -> a / b;
+
+        if (operator == OperatorType.PLUS) {
+            calculationResult = sum.operate(num1, num2) ;
+        } else if (operator == OperatorType.MINUS) {
+            calculationResult = sub.operate(num1, num2);
+        } else if (operator == OperatorType.MULTIPLY) {
+            calculationResult = mul.operate(num1, num2);
+        } else if (operator == OperatorType.DIVIDE) {
             if (num2 == 0) {
                 throw new RuntimeException("0으로 나눌 수 없습니다.");
             } else {
-                result.add(num1 / num2);
+                calculationResult = div.operate(num1, num2);
             }
         } else {
             throw new RuntimeException("잘못 입력하셨습니다. 다시 입력해주세요");
         }
+
+        result.add(calculationResult);
     }
 
     public void removeResult() {

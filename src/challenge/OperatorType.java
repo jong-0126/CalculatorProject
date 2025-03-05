@@ -10,6 +10,6 @@ public enum OperatorType {
     }
 
     public char getSymbol() {
-        return this.symbol;
+        return symbol;
     }
 }

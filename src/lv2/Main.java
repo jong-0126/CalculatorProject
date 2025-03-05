@@ -66,15 +66,15 @@ public class Main {
     }
 
     // 사칙연산 기호 메서드
-    private static String getOperator(Scanner sc){
-        while(true){
+    private static String getOperator(Scanner sc) {
+        while (true) {
             System.out.println("사칙연산 기호를 입력하세요 (+, -, *, /): ");
-            String operator = sc.nextLine();
-            if(operator.matches("[+\\-*/]")){
+                String operator = sc.nextLine();
+
+            if (operator.matches("[+\\-*/]")) {
                 return operator;
-            }else{
-                System.out.println("올바른 사칙연산 기호를 입력해주세요.");
             }
+            System.out.println("올바른 연산자를 입력해주세요.");
         }
     }
 }

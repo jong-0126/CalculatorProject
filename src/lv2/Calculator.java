@@ -64,8 +64,4 @@ public class Calculator {
         return Collections.unmodifiableList(result);
     }
 
-    // setter
-    public void setResult(List<Integer> result) {
-        this.result = result;
-    }
 }
