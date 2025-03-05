@@ -12,7 +12,7 @@
 - 빌드 도구: Gradle
 - IDE: IntelliJ IDEA
 - 버전 관리: Git, GitHub
-- 
+  
 
 ## 주요 기능
 - 기본적인 사칙연산(덧셈, 뺄셈, 곱셈, 나눗셈)
