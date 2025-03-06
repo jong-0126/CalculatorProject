@@ -86,6 +86,7 @@ public class Main {
 
             sc.nextLine();
 
+            // 종료 메서드
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String exit = sc.nextLine();
             if (exit.equals("exit")) {

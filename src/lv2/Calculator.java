@@ -12,7 +12,7 @@ public class Calculator {
 
     // 기능
     // 코드리뷰 반영 함수 이름 동사
-    // 계산 메소드
+    // 계산 메서드
     public List<Integer> calculate(int num1, int num2, String operator) {
 
         // 결과 저장 변수
@@ -36,7 +36,7 @@ public class Calculator {
                 calculationResult = num1 / num2;
                 break;
             default:
-                throw new IllegalArgumentException("잘못된 연산자입니다. (+, -, *, / 중 하나를 입력해주세요)");
+                throw new RuntimeException("잘못된 연산자입니다. (+, -, *, / 중 하나를 입력해주세요)");
         }
 
         // result 리스트에 추가
@@ -48,7 +48,7 @@ public class Calculator {
 
     // 삭제 메소드
     public void removeResult() {
-        // result가 비어있을때 대비
+        // result 가 비어있을때 대비
         if (result.isEmpty()) {
             System.out.println("저장된 결과가 없습니다.");
             return;

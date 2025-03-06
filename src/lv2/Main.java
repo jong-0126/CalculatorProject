@@ -14,13 +14,16 @@ public class Main {
         Calculator calc = new Calculator();
         while (true) {
             try {
+                // 첫번째 숫자 입력
                 num1 = getNumber(sc, "첫번째 숫자를 입력해주세요.");
+                // 두번째 숫자 입력
                 num2 = getNumber(sc, "두번째 숫자를 입력해주세요.");
+                // 사칙연산 기호 입력
                 operator = getOperator(sc);
 
+                // 계산
                 calc.calculate(num1, num2, operator);
                 System.out.println("결과:" + calc.getResult());
-
             } catch (InputMismatchException e) {
                 System.out.println("잘못 입력하셨습니다. 다시 입력해주세요");
                 sc.nextLine();
@@ -31,6 +34,7 @@ public class Main {
                 continue;
             }
 
+            // 삭제
             System.out.println("첫 번째 데이터 삭제하기 - (yes/no)");
             String removeResult = sc.nextLine();
             if (removeResult.equals("yes")) {
@@ -39,6 +43,7 @@ public class Main {
 
             System.out.println("더 계산하시겠습니까? 아무키나 눌러주세요(exit 입력 시 종료)");
 
+            // 종료
             String exit = sc.nextLine();
             if (exit.equals("exit")) {
                 System.out.println("계산기를 종료합니다.");
@@ -74,7 +79,7 @@ public class Main {
             if (operator.matches("[+\\-*/]")) {
                 return operator;
             }
-            System.out.println("올바른 연산자를 입력해주세요.");
+            System.out.println("잘못된 연산자 입니다.");
         }
     }
 }
