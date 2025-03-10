@@ -23,7 +23,6 @@ public class ArithmeticCalculator<T extends Number> {
             }
     );
 
-
     // 기능
     public void calculate(T firstNum, T secondNum, OperatorType operator) {
 
