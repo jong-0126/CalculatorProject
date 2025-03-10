@@ -12,4 +12,6 @@ public enum OperatorType {
     public char getSymbol() {
         return symbol;
     }
+
+
 }

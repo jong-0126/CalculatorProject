@@ -16,7 +16,7 @@ public class Calculator {
     public List<Integer> calculate(int num1, int num2, String operator) {
 
         // 결과 저장 변수
-        int calculationResult;
+        double calculationResult = 0;
 
         // if 문 보다 더 간결함
         switch (operator) {
@@ -33,14 +33,12 @@ public class Calculator {
                 if (num2 == 0) {
                     throw new ArithmeticException("0으로 나눌 수 없습니다.");
                 }
-                calculationResult = num1 / num2;
+                calculationResult =  (double) num1 / num2;
                 break;
-            default:
-                throw new RuntimeException("잘못된 연산자입니다. (+, -, *, / 중 하나를 입력해주세요)");
         }
 
         // result 리스트에 추가
-        result.add(calculationResult);
+        result.add((int) calculationResult);
 
         // 데이터 보호 강화: 외부에서 리스트 수정 불가
         return Collections.unmodifiableList(result);

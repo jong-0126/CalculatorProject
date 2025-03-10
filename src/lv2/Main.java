@@ -13,6 +13,14 @@ public class Main {
 
         Calculator calc = new Calculator();
         while (true) {
+
+            // 삭제
+            System.out.println("첫 번째 데이터 삭제하기 - (yes/no) no를 입력하면 계산기가 시작됩니다.");
+            String removeResult = sc.nextLine();
+            if (removeResult.equals("yes")) {
+                calc.removeResult();
+            }
+
             try {
                 // 첫번째 숫자 입력
                 num1 = getNumber(sc, "첫번째 숫자를 입력해주세요.");
@@ -24,22 +32,12 @@ public class Main {
                 // 계산
                 calc.calculate(num1, num2, operator);
                 System.out.println("결과:" + calc.getResult());
-            } catch (InputMismatchException e) {
-                System.out.println("잘못 입력하셨습니다. 다시 입력해주세요");
-                sc.nextLine();
-                continue;
             } catch (ArithmeticException e) {
                 System.out.println(e.getMessage());
                 sc.nextLine();
                 continue;
             }
 
-            // 삭제
-            System.out.println("첫 번째 데이터 삭제하기 - (yes/no)");
-            String removeResult = sc.nextLine();
-            if (removeResult.equals("yes")) {
-                calc.removeResult();
-            }
 
             System.out.println("더 계산하시겠습니까? 아무키나 눌러주세요(exit 입력 시 종료)");
 
